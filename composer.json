@@ -16,7 +16,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Blackthorne\\VoodooSms\\": "src/"
+            "Blackthorne\\VoodooSms\\": "src/",
+            "Blackthorne\\VoodooSms\\Tests\\": "tests/"
         }
     }
 }
