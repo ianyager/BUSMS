@@ -4,9 +4,12 @@ namespace Blackthorne\VoodooSms\Tests;
 
 use Blackthorne\VoodooSms\Client;
 use Blackthorne\VoodooSms\VoodooSmsMessage;
+use Xeen\MockServerClient\Traits\MockServerTestCase;
 
-class VoodooSmsApiClientTest extends MockServerTestCase
+class VoodooSmsApiClientTest extends TestCase
 {
+    use MockServerTestCase;
+
     private Client $client;
 
     public function setUp(): void
