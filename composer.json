@@ -8,10 +8,18 @@
             "email": "alex@xeen.uk"
         }
     ],
+    "repositories": [
+        {
+            "name": "xeen/mock-server-client",
+            "type": "path",
+            "url": "../MockServerClient"
+        }
+    ],
     "require": {
         "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
+        "xeen/mock-server-client": "dev-master",
         "phpunit/phpunit": "^9.3"
     },
     "autoload": {

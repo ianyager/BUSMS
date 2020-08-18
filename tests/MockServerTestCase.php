@@ -5,7 +5,7 @@ namespace Blackthorne\VoodooSms\Tests;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 use Xeen\MockServerClient\Client as MockServerClient;
 
-class TestCase extends BaseTestCase
+class MockServerTestCase extends BaseTestCase
 {
     protected MockServerClient $mockServerClient;
 

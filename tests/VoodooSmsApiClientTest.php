@@ -5,7 +5,7 @@ namespace Blackthorne\VoodooSms\Tests;
 use Blackthorne\VoodooSms\Client;
 use Blackthorne\VoodooSms\VoodooSmsMessage;
 
-class VoodooSmsApiClientTest extends TestCase
+class VoodooSmsApiClientTest extends MockServerTestCase
 {
     private Client $client;
 
