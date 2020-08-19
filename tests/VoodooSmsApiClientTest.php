@@ -179,11 +179,12 @@ class VoodooSmsApiClientTest extends TestCase
         $this->setMockServerExpectation($expectation);
 
         $message = new VoodooSmsMessage([
-            'to' => '+447500000000',
+            'to' => '+447700900000',
             'from' => 'TestCorp.',
             'msg' => 'Test Message',
         ]);
         $this->expectException(VoodooSmsApiException::class);
         $result = $this->client->send($message);
+        $this->assert(false, "Shouldn't get here");
     }
 }
