@@ -173,6 +173,28 @@ class VoodooSmsApiClientTest extends TestCase
         ];
     }
 
+    public function testSendOverrideTo()
+    {
+        $expectation = Config::load('mocks/send_ok_schema.json')->all();
+        $this->setMockServerExpectation($expectation);
+
+        $message = new VoodooSmsMessage([
+            'to' => '+447700900100',
+            'from' => 'TestCorp.',
+            'msg' => 'Test Message',
+        ]);
+        $this->client->setConfig([
+            'override_to' => '+447700900000',
+            'secret' => 'secret2',
+        ]);
+        $result = $this->client->send($message);
+        $this->assertIsObject($result);
+        $this->assertEquals('1', $result->count, "Should send 1 message");
+        $this->assertCount(1, $result->messages);
+        $this->assertEquals(447700900000, $result->messages[0]->recipient);
+        $this->assertEquals('PENDING_SENT', $result->messages[0]->status);
+    }
+
     public function testSendAuthFail()
     {
         $expectation = Config::load('mocks/send_fail_auth.json')->all();
