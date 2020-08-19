@@ -11,8 +11,8 @@
     "repositories": [
         {
             "name": "xeen/mock-server-client",
-            "type": "path",
-            "url": "../MockServerClient"
+            "type": "vcs",
+            "url": "https://git.xeen.uk/xeen/mock-server-client.git"
         }
     ],
     "require": {
