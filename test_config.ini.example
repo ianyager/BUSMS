@@ -1,0 +1,7 @@
+[voodoosms]
+base_url=http://vm-xeendev2:1080
+secret=1234
+
+[mockserver]
+host=127.0.0.1
+port=1080

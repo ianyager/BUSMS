@@ -20,10 +20,7 @@ class VoodooSmsApiClientTest extends TestCase
 
     public function clientConfig()
     {
-        return [
-            'base_url' => 'http://vm-xeendev2:1080',
-            'secret' => '1234',
-        ];
+        return self::$config['voodoosms'];
     }
 
     public function setSecret($secret) {
