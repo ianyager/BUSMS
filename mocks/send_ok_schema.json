@@ -1,0 +1,49 @@
+{
+  "id": "send_ok_schema",
+  "httpRequest": {
+    "path": "/sendsms",
+    "method": "POST",
+    "headers": [
+      {
+        "name": "Authorization",
+        "values": [
+          "Bearer secret2"
+        ]
+      }
+    ],
+    "body": {
+      "type": "JSON_SCHEMA",
+      "jsonSchema": {
+        "title": "Send SMS Request Body",
+        "properties": {
+          "to": {
+            "type": "string",
+            "enum": [
+              "+447500000000"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "httpResponse": {
+    "body": {
+      "json": {
+        "count": 1,
+        "originator": "VoodooSMS",
+        "body": "Hello this is your SMS body",
+        "scheduledDateTime": 1537525949,
+        "credits": 1,
+        "balance": 2365,
+        "messages": [
+          {
+            "id": "97709216074987x3NFD16GgkChK2E67441209181vapi",
+            "recipient": 447800000000,
+            "reference": null,
+            "status": "PENDING_SENT"
+          }
+        ]
+      }
+    }
+  }
+}

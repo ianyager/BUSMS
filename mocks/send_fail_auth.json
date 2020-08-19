@@ -1,0 +1,35 @@
+{
+  "id": "send_fail_auth",
+  "priority": 0,
+  "httpRequest": {
+    "path": "/sendsms",
+    "method": "POST",
+    "body": {
+      "type": "JSON_SCHEMA",
+      "jsonSchema": {
+        "title": "Send SMS Request Body",
+        "properties": {
+          "to": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "httpResponse": {
+    "statusCode": 401,
+    "headers": {
+        "Content-Type": [
+            "application/json; charset=utf-8"
+        ]
+    },
+    "body": {
+      "json": {
+        "error": {
+            "code": 1,
+            "msg": "No API Key provided, or Key is invalid"
+        }
+      }
+    }
+  }
+}

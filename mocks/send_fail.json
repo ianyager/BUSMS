@@ -1,0 +1,31 @@
+{
+    "id": "send_2_bad_to",
+    "httpRequest": {
+        "path": "/sendsms",
+        "method": "POST",
+        "headers": [
+            {
+                "name": "Authorization",
+                "values": [
+                    "Bearer secret2"
+                ]
+            }
+        ],
+        "body": {
+            "type": "JSON",
+            "json": {
+                "to": "44123"
+            }
+        }
+    },
+    "httpResponse": {
+        "body": {
+            "json": {
+                "error": {
+                    "code": 5,
+                    "msg": "A required parameter is missing"
+                }
+            }
+        }
+    }
+}

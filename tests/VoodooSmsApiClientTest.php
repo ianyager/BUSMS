@@ -3,7 +3,9 @@
 namespace Blackthorne\VoodooSms\Tests;
 
 use Blackthorne\VoodooSms\Client;
+use Blackthorne\VoodooSms\Exceptions\VoodooSmsApiException;
 use Blackthorne\VoodooSms\VoodooSmsMessage;
+use Noodlehaus\Config;
 use Xeen\MockServerClient\Traits\MockServerTestCase;
 
 class VoodooSmsApiClientTest extends TestCase
@@ -169,5 +171,19 @@ class VoodooSmsApiClientTest extends TestCase
                 ]
             ],
         ];
+    }
+
+    public function testSendAuthFail()
+    {
+        $expectation = Config::load('mocks/send_fail_auth.json')->all();
+        $this->setMockServerExpectation($expectation);
+
+        $message = new VoodooSmsMessage([
+            'to' => '+447500000000',
+            'from' => 'TestCorp.',
+            'msg' => 'Test Message',
+        ]);
+        $this->expectException(VoodooSmsApiException::class);
+        $result = $this->client->send($message);
     }
 }
