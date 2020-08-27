@@ -52,11 +52,19 @@ class Client
         return $this->api_request('GET', 'report');
     }
 
-    public function fetch_report_for_datetime_range(Datetime $start, Datetime $end)
+    public function fetch_report_for_datetime_range(Datetime $start, Datetime $end, int $limit = 25)
     {
         return $this->api_request('GET', 'report', [
             'start' => $start->format('c'),
             'end' => $end->format('c'),
+            'limit' => $limit,
+        ]);
+    }
+
+    public function fetch_report_for_message_id(string $message_id)
+    {
+        return $this->api_request('GET', 'report', [
+            'message_id' => $message_id,
         ]);
     }
 
