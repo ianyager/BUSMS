@@ -47,14 +47,18 @@ class Client
         }
     }
 
-    public function fetch_report()
+    public function fetch_report($query = [])
     {
-        return $this->api_request('GET', 'report');
+        try {
+            return $this->api_request('GET', 'report', $query);
+        } catch (VoodooSmsApiException $ex) {
+            return json_decode('{"limit":0,"report":[]}');
+        }
     }
 
     public function fetch_report_for_datetime_range(Datetime $start, Datetime $end, int $limit = 25)
     {
-        return $this->api_request('GET', 'report', [
+        return $this->fetch_report([
             'start' => $start->format('Y-m-d'),
             'end' => $end->format('Y-m-d'),
             'limit' => $limit,
@@ -63,7 +67,7 @@ class Client
 
     public function fetch_report_for_message_id(string $message_id)
     {
-        return $this->api_request('GET', 'report', [
+        return $this->fetch_report([
             'message_id' => $message_id,
         ]);
     }

@@ -1,0 +1,26 @@
+{
+    "id": "report_no_records",
+    "httpRequest": {
+        "path": "/report",
+        "method": "GET",
+        "headers": [
+            {
+                "name": "Authorization",
+                "values": [
+                    "Bearer secret2"
+                ]
+            }
+        ]
+    },
+    "httpResponse": {
+        "statusCode": 400,
+        "body": {
+            "json": {
+                "error": {
+                    "code": 77,
+                    "msg": "No records found"
+                }
+            }
+        }
+    }
+}

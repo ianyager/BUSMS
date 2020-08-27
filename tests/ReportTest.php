@@ -17,6 +17,22 @@ class ReportTest extends TestCase
         $end = new Datetime('2020-02-01');
         $result = $this->client->fetch_report_for_datetime_range($start, $end);
 
+        $this->assertIsObject($result);
+        $this->assertObjectHasAttribute('limit', $result);
+        $this->assertObjectHasAttribute('report', $result);
+        $this->assertIsArray($result->report, "Should have a 'report' array");
+    }
+
+    public function testReportNoRecords()
+    {
+        $this->setSecret(self::GOOD_SECRET);
+        $this->loadMockServerExpectation('mocks/report_no_records.json');
+
+        $start = new Datetime('2020-01-01');
+        $end = new Datetime('2020-02-01');
+        $result = $this->client->fetch_report_for_datetime_range($start, $end);
+
+        $this->assertIsObject($result);
         $this->assertObjectHasAttribute('limit', $result);
         $this->assertObjectHasAttribute('report', $result);
         $this->assertIsArray($result->report, "Should have a 'report' array");
