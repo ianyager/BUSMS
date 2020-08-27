@@ -2,35 +2,12 @@
 
 namespace Blackthorne\VoodooSms\Tests;
 
-use Blackthorne\VoodooSms\Client;
 use Blackthorne\VoodooSms\Exceptions\VoodooSmsApiException;
 use Blackthorne\VoodooSms\VoodooSmsMessage;
 use Noodlehaus\Config;
-use Xeen\MockServerClient\Traits\MockServerTestCase;
 
 class VoodooSmsApiClientTest extends TestCase
 {
-    use MockServerTestCase;
-
-    private Client $client;
-
-    public function setUp(): void
-    {
-        $this->client = new Client($this->clientConfig());
-        $this->clearMockServerExpectaions();
-    }
-
-    public function clientConfig()
-    {
-        return self::$config['voodoosms'];
-    }
-
-    public function setSecret($secret) {
-        $this->client->setConfig([
-            'secret' => $secret,
-        ]);
-    }
-
     /**
      * Test get_credits
      * @dataProvider getBalanceProvider

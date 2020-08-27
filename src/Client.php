@@ -8,6 +8,7 @@ use Blackthorne\VoodooSms\Exceptions\UnexpectedResponse;
 use GuzzleHttp\Client AS HttpClient;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
+use \Datetime;
 use \JsonException;
 
 class Client
@@ -49,6 +50,14 @@ class Client
     public function fetch_report()
     {
         return $this->api_request('GET', 'report');
+    }
+
+    public function fetch_report_for_datetime_range(Datetime $start, Datetime $end)
+    {
+        return $this->api_request('GET', 'report', [
+            'start' => $start->format('c'),
+            'end' => $end->format('c'),
+        ]);
     }
 
     public function send_template(int $template_id, VoodooSmsMessage $message)
@@ -143,7 +152,11 @@ class Client
                 if ($this->config->sandbox) {
                     $data['sandbox'] = TRUE;
                 }
-                $response = $client->request($method, $uri, ['json' => $data]);
+                if (in_array($method, ['GET', 'HEAD'])) {
+                    $response = $client->request($method, $uri, ['query' => $data]);
+                } else {
+                    $response = $client->request($method, $uri, ['json' => $data]);
+                }
             } else {
                 $response = $client->request($method, $uri);
             }

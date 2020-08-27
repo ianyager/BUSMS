@@ -1,0 +1,115 @@
+{
+    "id": "report_no_records",
+    "httpRequest": {
+        "path": "/report",
+        "method": "GET",
+        "queryStringParameters": [
+            {
+                "name": "start",
+                "values": ["2020-01-01T00:00:00+00:00"]
+            },
+            {
+                "name": "end",
+                "values": ["2020-02-01T00:00:00+00:00"]
+            }
+        ],
+        "headers": [
+            {
+                "name": "Authorization",
+                "values": [
+                    "Bearer secret2"
+                ]
+            }
+        ]
+    },
+    "httpResponse": {
+        "body": {
+            "json": {
+                "limit": 9,
+                "report": [
+                    {
+                        "message_id": "9773826944409053wsms",
+                        "sender_id": "Blackthorne",
+                        "to": 447700900156,
+                        "sent_at": "2020-08-18T09:11:00+0000",
+                        "delivered_at": 1597741874,
+                        "price": 1,
+                        "status": "Delivered"
+                    },
+                    {
+                        "message_id": "9773826944409052wsms",
+                        "sender_id": "Blackthorne",
+                        "to": 447700900892,
+                        "sent_at": "2020-08-18T09:11:00+0000",
+                        "delivered_at": 1597741873,
+                        "price": 1,
+                        "status": "Delivered"
+                    },
+                    {
+                        "message_id": "9773826944409051wsms",
+                        "sender_id": "Blackthorne",
+                        "to": 447700900477,
+                        "sent_at": "2020-08-18T09:11:00+0000",
+                        "delivered_at": 1597741873,
+                        "price": 1,
+                        "status": "Delivered"
+                    },
+                    {
+                        "message_id": "9773826944409050wsms",
+                        "sender_id": "Blackthorne",
+                        "to": 447700900477,
+                        "sent_at": "2020-08-18T09:11:00+0000",
+                        "delivered_at": 1597741873,
+                        "price": 1,
+                        "status": "Delivered"
+                    },
+                    {
+                        "message_id": "9773826944409049wsms",
+                        "sender_id": "Blackthorne",
+                        "to": 447700900926,
+                        "sent_at": "2020-08-18T09:11:00+0000",
+                        "delivered_at": 1597741871,
+                        "price": 1,
+                        "status": "Not Delivered"
+                    },
+                    {
+                        "message_id": "9773826944409048wsms",
+                        "sender_id": "Blackthorne",
+                        "to": 447700900966,
+                        "sent_at": "2020-08-18T09:11:00+0000",
+                        "delivered_at": 1597741872,
+                        "price": 1,
+                        "status": "Delivered"
+                    },
+                    {
+                        "message_id": "9773826844409047wsms",
+                        "sender_id": "Blackthorne",
+                        "to": 447700900397,
+                        "sent_at": "2020-08-18T09:11:00+0000",
+                        "delivered_at": 1597741872,
+                        "price": 1,
+                        "status": "Delivered"
+                    },
+                    {
+                        "message_id": "9773826844409046wsms",
+                        "sender_id": "Blackthorne",
+                        "to": 447700900182,
+                        "sent_at": "2020-08-18T09:11:00+0000",
+                        "delivered_at": 1597741873,
+                        "price": 1,
+                        "status": "Delivered"
+                    },
+                    {
+                        "message_id": "9773826844409045wsms",
+                        "sender_id": "Blackthorne",
+                        "to": 447700900046,
+                        "sent_at": "2020-08-18T09:11:00+0000",
+                        "delivered_at": 1597915801,
+                        "price": 1,
+                        "status": "Expired"
+                    }
+                ]
+            }
+        }
+    }
+}
