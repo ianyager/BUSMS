@@ -55,8 +55,8 @@ class Client
     public function fetch_report_for_datetime_range(Datetime $start, Datetime $end, int $limit = 25)
     {
         return $this->api_request('GET', 'report', [
-            'start' => $start->format('c'),
-            'end' => $end->format('c'),
+            'start' => $start->format('Y-m-d'),
+            'end' => $end->format('Y-m-d'),
             'limit' => $limit,
         ]);
     }
