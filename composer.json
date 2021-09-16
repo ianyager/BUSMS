@@ -12,14 +12,14 @@
         {
             "name": "xeen/mock-server-client",
             "type": "vcs",
-            "url": "https://git.xeen.uk/xeen/mock-server-client.git"
+            "url": "https://xeen.dev/xeen/mock-server-client.git"
         }
     ],
     "require": {
         "guzzlehttp/guzzle": "^7.0"
     },
     "require-dev": {
-        "xeen/mock-server-client": "dev-master",
+        "xeen/mock-server-client": "dev-trunk",
         "hassankhan/config": "^2.1",
         "phpunit/phpunit": "^9.3"
     },
